@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+
   devise_for :users
-  get 'welcome/index'
   root 'welcome#index'
+  get 'welcome/index'
+
+  authenticated :user do
+    root 'docs#index', as: 'authenticated_root'
+  end
+  # 失敗！！沒效果
 
   resources :docs
 

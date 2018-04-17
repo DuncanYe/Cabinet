@@ -1,19 +1,26 @@
 <h1>Docs index</h1>
 
-styling index
-
-<ul>
+<table border="2" >
+  <caption><strong> Docs list</strong></caption>
+  <tr>
+    <th>Ttile</th>
+    <th>Content</th>
+    <th>Docs_id</th>
+    <th>User_id</th>
+    <th>#</th>
+  </tr>
+  <tr>
   <% @docs.each do |d| %>
-  <li>
-    Title: <%= d.title %>
-    Content: <%= d.content %>
-    <%= link_to 'Show', doc_path(d) %>
+  <td><%= d.title %></td>
+    <td><%= d.content %></td>
+    <td><%= d.id %></td>
+    <td><%= d.user_id %></td>
+    <td><%= link_to 'Show', doc_path(d) %>
     <%= link_to 'Edit', edit_doc_path(d) %>
-    <%= link_to 'Trash it', doc_path(d), method: :delete, data: { confirm: "Areyou sure? "} %>
-    ID:<%= d.id %>
-    User_id:<%= d.user_id %>
-  </li>
+    <%= link_to 'Trash it', doc_path(d), method: :delete, data: { confirm: "Areyou sure? "} %></td>
+  </tr>
   <% end %>
-</ul>
+</table>
+
 
 <h3><%= link_to 'New Doc ', new_doc_path %></h3>

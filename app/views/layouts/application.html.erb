@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <ul class="pull-right">
+    <% if current_user %>
+      Hi, <%= current_user.email %> |
+      <%= link_to('登出', destroy_user_session_path, method: :delete) %>
+   <% end %>   
+ </ul>
     <%= yield %>
   </body>
 </html>

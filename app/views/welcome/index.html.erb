@@ -1,4 +1,8 @@
-<h1>Welcome#index</h1>
+<h1>Welcome index Page</h1>
 
-<h1><%= link_to 'Docs Page', docs_path %></h1>
-<h1><%= link_to 'Sign Up', new_user_registration_path  %></h1>
+<% if current_user %>
+  <h1><%= link_to 'Docs Page', docs_path %></h1>
+<% else %>
+  <h4>Menber Login in | <%= link_to('登入', new_user_session_path) %></h4>
+  <h4>See more content sign up here | <%= link_to 'Sign Up', new_user_registration_path  %> </h4>
+<% end %>   
