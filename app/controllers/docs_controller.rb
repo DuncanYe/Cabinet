@@ -1,5 +1,7 @@
 class DocsController < ApplicationController
 
+  before_action :authenticate_user!
+ 
   before_action :find_doc, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -11,11 +13,11 @@ class DocsController < ApplicationController
   end
 
   def new
-    @doc = Doc.new
+    @doc = current_user.docs.new
   end
 
   def create
-    @doc = Doc.new(doc_params)
+    @doc = current_user.docs.new(doc_params)
     if @doc.save
       redirect_to doc_path(@doc)
     else
@@ -42,7 +44,7 @@ class DocsController < ApplicationController
   private
 
   def doc_params
-    params.require(:doc).permit(:title, :content)
+    params.require(:doc).permit(:title, :content, :user_id)
   end
 
   def find_doc

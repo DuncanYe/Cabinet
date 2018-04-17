@@ -9,6 +9,7 @@
     <%= link_to 'Edit', edit_doc_path(d) %>
     <%= link_to 'Trash it', doc_path(d), method: :delete, data: { confirm: "Areyou sure? "} %>
     ID:<%= d.id %>
+    User_id:<%= d.user_id %>
   </li>
   <% end %>
 </ul>
