@@ -1,0 +1,16 @@
+<h1>Docs index</h1>
+
+<ul>
+  <% @docs.each do |d| %>
+  <li>
+    Title: <%= d.title %>
+    Content: <%= d.content %>
+    <%= link_to 'Show', doc_path(d) %>
+    <%= link_to 'Edit', edit_doc_path(d) %>
+    <%= link_to 'Trash it', doc_path(d), method: :delete, data: { confirm: "Areyou sure? "} %>
+    ID:<%= d.id %>
+  </li>
+  <% end %>
+</ul>
+
+<h3><%= link_to 'New Doc ', new_doc_path %></h3>
