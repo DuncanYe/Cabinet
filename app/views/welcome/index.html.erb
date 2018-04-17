@@ -1,8 +1,14 @@
-<h1>Welcome index Page</h1>
+<div class="container">
+  <div class="row text-center">
+    <h1>File Cabinet</h1>
+    <br>
+    <h3>Your live's work! Organized, always.</h3>
+    <%= image_tag('1.jpg', class:'img-responsive center-block')  %>
 
-<% if current_user %>
-  <h1><%= link_to 'Docs Page', docs_path %></h1>
-<% else %>
-  <h4>Menber Login in | <%= link_to('登入', new_user_session_path) %></h4>
-  <h4>See more content sign up here | <%= link_to 'Join Now', new_user_registration_path  %> </h4>
-<% end %>   
+    <% if current_user %>
+      <h1><%= link_to 'Enter', docs_path %></h1>
+    <% else %>
+      <h3>See more content sign up here | <%= link_to 'Join Now', new_user_registration_path  %> </h3>
+    <% end %>   
+  </div>
+</div>
