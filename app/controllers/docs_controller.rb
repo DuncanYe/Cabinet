@@ -5,8 +5,8 @@ class DocsController < ApplicationController
   before_action :find_doc, only: [:show, :edit, :update, :destroy]
 
   def index
-    @docs = Doc.all
-    # 之後改成只有自己(current_user)能瀏覽
+    @docs = Doc.where( user_id: current_user)
+    # 只有他自己(current_user)的Docs
   end
 
   def show
