@@ -5,7 +5,7 @@ class DocsController < ApplicationController
   before_action :find_doc, only: [:show, :edit, :update, :destroy]
 
   def index
-    @docs = Doc.where( user_id: current_user)
+    @docs = Doc.where( user_id: current_user).order(created_at: :desc)
     # 只有他自己(current_user)的Docs
   end
 
@@ -44,7 +44,7 @@ class DocsController < ApplicationController
   private
 
   def doc_params
-    params.require(:doc).permit(:title, :content, :user_id)
+    params.require(:doc).permit(:title, :content, :user_id, :photo)
   end
 
   def find_doc

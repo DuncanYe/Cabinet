@@ -6,6 +6,10 @@
   <%= d.label :content %>
   <%= d.text_field :content %><br />
 
+  <%= d.label :photo %>
+  <%= image_tag @doc.photo, width: '300px' if @doc.photo? %>
+  <%= d.file_field :photo %><br />  
+
   <%= d.submit %>
 
 <% end %>
